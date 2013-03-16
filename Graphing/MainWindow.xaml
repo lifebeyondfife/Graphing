@@ -5,7 +5,7 @@
 		xmlns:validators="clr-namespace:Graphing"
 		Title="Graphing" Height="480" Width="640" MinWidth="500" MinHeight="300" Icon="/Graphing;component/Graphing.ico" WindowStartupLocation="CenterScreen">
 	<Grid>
-		<graph:GraphDisplay Name="GraphPlot" SizeChanged="GraphPlot_SizeChanged" Margin="0,0,0,70" />
+		<graph:GraphDisplay Name="GraphPlot" SizeChanged="GraphPlot_SizeChanged" Margin="0,0,0,35" />
 		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal">
 			<StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Center">
 				<StackPanel Margin="5,0,5,5" Orientation="Horizontal" Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
@@ -28,32 +28,6 @@
 					<Label Content="h(x) = " Height="28" Width="50" Margin="10,0,0,0" FontWeight="UltraBold" FontFamily="Cambria Math" Foreground="Lime" />
 					<TextBox Height="23" GotFocus="TextBox_GotFocus" Width="110" TabIndex="4">
 						<Binding Path="HofX" UpdateSourceTrigger="LostFocus">
-							<Binding.ValidationRules>
-								<validators:FunctionValidator />
-							</Binding.ValidationRules>
-						</Binding>
-					</TextBox>
-				</StackPanel>
-				<StackPanel Margin="5,0,5,5" Orientation="Horizontal" Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
-					<Label Content="f'(x) = " Height="28" Width="50" FontWeight="UltraBold" FontFamily="Cambria Math" Foreground="Red" />
-					<TextBox Height="23" GotFocus="TextBox_GotFocus" Width="110" TabIndex="1">
-						<Binding Path="FofXDerivative" UpdateSourceTrigger="LostFocus">
-							<Binding.ValidationRules>
-								<validators:FunctionValidator />
-							</Binding.ValidationRules>
-						</Binding>
-					</TextBox>
-					<Label Content="g'(x) = " Height="28" Width="50" Margin="10,0,0,0" FontWeight="UltraBold" FontFamily="Cambria Math" Foreground="Blue" />
-					<TextBox Height="23" GotFocus="TextBox_GotFocus" Width="110" TabIndex="3">
-						<Binding Path="GofXDerivative" UpdateSourceTrigger="LostFocus">
-							<Binding.ValidationRules>
-								<validators:FunctionValidator />
-							</Binding.ValidationRules>
-						</Binding>
-					</TextBox>
-					<Label Content="h'(x) = " Height="28" Width="50" Margin="10,0,0,0" FontWeight="UltraBold" FontFamily="Cambria Math" Foreground="Lime" />
-					<TextBox Height="23" GotFocus="TextBox_GotFocus" Width="110" TabIndex="5">
-						<Binding Path="HofXDerivative" UpdateSourceTrigger="LostFocus">
 							<Binding.ValidationRules>
 								<validators:FunctionValidator />
 							</Binding.ValidationRules>

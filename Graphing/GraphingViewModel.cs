@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using Mathematics.Graphing;
 
 namespace Graphing
 {
 	public class GraphingViewModel : DependencyObject
 	{
 		public string FofX { get; set; }
-		public string FofXDerivative { get; set; }
 		public string GofX { get; set; }
-		public string GofXDerivative { get; set; }
 		public string HofX { get; set; }
-		public string HofXDerivative { get; set; }
 
 		public static readonly DependencyProperty UpperBoundProperty =
 			DependencyProperty.Register("UpperBound", typeof(double), typeof(GraphingViewModel), new UIPropertyMetadata());
@@ -43,7 +36,7 @@ namespace Graphing
 
 		internal void DrawGraph(bool functionsChanged)
 		{
-			if (this.LowerBound == this.UpperBound)
+			if (Math.Abs(this.LowerBound - this.UpperBound) < GraphingModel.Limit)
 				this.UpperBound++;
 			else if (this.LowerBound > this.UpperBound)
 			{
@@ -53,8 +46,7 @@ namespace Graphing
 			}
 
 			if (functionsChanged)
-				this.GraphModel.DrawGraph(new[] { this.FofX, this.GofX, this.HofX },
-					new[] { this.FofXDerivative, this.GofXDerivative, this.HofXDerivative }, this.LowerBound, this.UpperBound);
+				this.GraphModel.DrawGraph(new[] { this.FofX, this.GofX, this.HofX }, this.LowerBound, this.UpperBound);
 			else
 				this.GraphModel.DrawGraph(this.LowerBound, this.UpperBound);
 		}

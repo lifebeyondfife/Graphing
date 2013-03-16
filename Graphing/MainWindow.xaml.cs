@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Controls;
-using Microsoft.CSharp;
-using System.Collections.Generic;
-using System.CodeDom;
-using System.Text;
-using System.CodeDom.Compiler;
-using System.Reflection;
-using System.Windows.Input;
 
 namespace Graphing
 {
-	public partial class MainWindow : Window
+	public partial class MainWindow
 	{
 		private GraphingViewModel ViewModel { get; set; }
 
@@ -22,20 +13,20 @@ namespace Graphing
 
 			this.ViewModel = new GraphingViewModel(new GraphingModel(this.GraphPlot));
 			this.DataContext = this.ViewModel;
-			DrawGraph(true);
+			DrawGraph();
 		}
 
 		private void GraphPlot_SizeChanged(object sender, SizeChangedEventArgs e)
 		{
-			DrawGraph(false);
+			DrawGraph();
 		}
 
 		private void TextBox_GotFocus(object sender, RoutedEventArgs e)
 		{
-			DrawGraph(true);
+			DrawGraph();
 		}
 
-		private void DrawGraph(bool functionsChanged)
+		private void DrawGraph()
 		{
 			try
 			{
